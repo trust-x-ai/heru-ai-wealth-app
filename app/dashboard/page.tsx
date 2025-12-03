@@ -9,6 +9,9 @@ import { classifyWealthArchetype, getArchetypeInsights, WEALTH_ARCHETYPES } from
 import type { WellnessScore } from "@/lib/wellness-scoring"
 import type { WealthProfile } from "@/lib/wealth-profiling"
 
+// Disable static generation for this dynamic page
+export const dynamic = 'force-dynamic'
+
 // Mock data - in real app, would come from user session/API
 const MOCK_WELLNESS_SCORES: WellnessScore = {
   financial: 76,

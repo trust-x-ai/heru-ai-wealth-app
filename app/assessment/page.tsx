@@ -9,6 +9,8 @@ import { ResultsStep } from "@/components/assessment/results-step"
 import type { ClientProfile } from "@/lib/assessment-data"
 import type { WellnessScore } from "@/lib/wellness-scoring"
 
+export const dynamic = 'force-dynamic'
+
 export default function AssessmentPage() {
   const [step, setStep] = useState(0)
   const [clientProfile, setClientProfile] = useState<ClientProfile | null>(null)

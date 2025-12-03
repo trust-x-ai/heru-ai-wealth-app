@@ -5,6 +5,8 @@ import { HeruHeader } from "@/components/heru-header"
 import { WealthProfilingFlow } from "@/components/wealth-profiling-flow"
 import type { WealthProfile } from "@/lib/wealth-profiling"
 
+export const dynamic = 'force-dynamic'
+
 export default function WealthProfilingPage() {
   const [wealthProfile, setWealthProfile] = useState<Partial<WealthProfile>>({
     totalAssets: 1000000,

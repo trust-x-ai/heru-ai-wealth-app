@@ -11,6 +11,9 @@ import { calculateRiskProfile, type WealthProfile } from "@/lib/wealth-profiling
 import type { WellnessScore } from "@/lib/wellness-scoring"
 import Link from "next/link"
 
+// Disable static generation for this dynamic page
+export const dynamic = 'force-dynamic'
+
 // Mock data
 const MOCK_WELLNESS_SCORES: WellnessScore = {
   financial: 76,

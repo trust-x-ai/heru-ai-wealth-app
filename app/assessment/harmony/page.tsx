@@ -16,6 +16,8 @@ import {
 import { calculateRiskProfile, calculatePriorityWeighting, type WealthProfile } from "@/lib/wealth-profiling"
 import Link from "next/link"
 
+export const dynamic = 'force-dynamic'
+
 export default function HarmonyPage() {
   const searchParams = useSearchParams()
   const [wellnessScores, setWellnessScores] = useState<WellnessScore>({

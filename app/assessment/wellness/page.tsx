@@ -5,6 +5,8 @@ import { HeruHeader } from "@/components/heru-header"
 import { WellnessAssessmentFlow } from "@/components/wellness-assessment-flow"
 import { WELLNESS_DIMENSIONS } from "@/lib/wellness-scoring"
 
+export const dynamic = 'force-dynamic'
+
 export default function WellnessAssessmentPage() {
   const [currentStep, setCurrentStep] = useState(0)
   const [scores, setScores] = useState<Record<string, number>>(

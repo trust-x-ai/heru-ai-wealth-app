@@ -215,7 +215,7 @@ export function classifyWealthArchetype(
   const avgWellness = scores.reduce((a, b) => a + b, 0) / scores.length
 
   const reasoning: string[] = []
-  let archetypeId = "harmonious-strategist" // Default fallback
+  let archetypeKey = "harmoniousStrategist" // Default fallback (camelCase key)
 
   // Analyze patterns
   const highSpiritual = wellnessScores.spiritual > 70
@@ -230,15 +230,15 @@ export function classifyWealthArchetype(
 
   // Classification Logic
   if ((highSpiritual || highEmotional) && highEnvironmental && wealthProfile.impactFocus) {
-    archetypeId = "conscious-creator"
+    archetypeKey = "consciousCreator"
     reasoning.push("Strong spiritual and environmental wellness with impact focus")
     reasoning.push("Values-aligned investment preferences")
   } else if (highLegacyPriority && highTimeHorizon && hasLegacyGoal) {
-    archetypeId = "legacy-sovereign"
+    archetypeKey = "legacySovereign"
     reasoning.push("Multi-generational time horizon with legacy prioritization")
     reasoning.push("Emphasis on structured wealth transmission")
   } else if (highOccupational && highIntellectual && wealthProfile.riskAppetite > 65) {
-    archetypeId = "visionary-builder"
+    archetypeKey = "visionaryBuilder"
     reasoning.push("High occupational engagement with strong intellectual pursuits")
     reasoning.push("Risk-capable profile aligned with growth objectives")
   } else if (
@@ -246,7 +246,7 @@ export function classifyWealthArchetype(
     wellnessScores.physical > 70 &&
     wealthProfile.priorities.stability >= wealthProfile.priorities.growth
   ) {
-    archetypeId = "harmonious-strategist"
+    archetypeKey = "harmoniousStrategist"
     reasoning.push("Balanced wellness profile across multiple dimensions")
     reasoning.push("Preference for stability and systematic optimization")
   } else if (
@@ -254,12 +254,12 @@ export function classifyWealthArchetype(
     wealthProfile.riskAppetite < 40 ||
     wealthProfile.priorities.stability > 30
   ) {
-    archetypeId = "guardian-of-stability"
+    archetypeKey = "guardianOfStability"
     reasoning.push("Risk-conscious approach with emphasis on security")
     reasoning.push("High priority on capital preservation and accessibility")
   }
 
-  const archetype = WEALTH_ARCHETYPES[archetypeId]
+  const archetype = WEALTH_ARCHETYPES[archetypeKey]
   const confidence = Math.min(0.95, 0.6 + (Math.abs(avgWellness - 50) / 100) * 0.35)
 
   return {
